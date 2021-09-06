@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&family=ZCOOL+QingKe+HuangYou&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<style>
+    body{
+        background-color:rgba(0, 0, 0, 0.637) ;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+       
+    }
+    .box{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .head{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 300px;
+        width: 50%;
+        border: 2px dashed black;
+        margin: 150px 0px;
+    }
+    #btn{
+        height: 50px;
+        width: 220px;
+        margin: 20px;
+        border: 1px solid black;
+        border-radius: 1rem;
+        color: white;
+        font-weight: bold;
+        box-shadow: 3px 2px 7px 0px rgba(36, 34, 34, 0.75);
+    }
+    h2{
+        font-family: 'Roboto', sans-serif;
+font-family: 'ZCOOL QingKe HuangYou', cursive;
+    }
+    button{
+        border: none;
+        background: none;
+    }
+    #myInput{
+        padding: 8px 20px;
+        border: none;
+        outline: none;
+    }
+    @media (max-width:468px) {
+       .head{
+           width: 80%;
+           height: 52vh;
+       } 
+    }
+</style>
+<body>
+    <div class="head">
+        <h2>Random 8-Digit Password Generator</h2>
+        <div class="box">
+            <input type="text" value="" id="myInput">
+    
+            <!-- The button used to copy the text -->
+            <button onclick="myFunction()">
+                <img src="icons8-copy-30.png" alt=""></button>
+        </div>
+    
+        <button id="btn" onclick="Generate()"> Generate Password</button>
+    </div>
+ 
+
+</body>
+<script>
+    function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+   /* Copy the text inside the text field */
+  navigator.clipboard.writeText(copyText.value);
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+var Text = document.getElementById("myInput");
+let chars="abcdefghijklmnopqrstuvwxyz!@#$%&*123456789";
+function Generate(){
+    let i,random="";
+    for(i=0;i<8;i++){
+        random=random+chars.charAt(
+            Math.floor(Math.random()*chars.length)
+        );
+    }
+   Text.value=random; 
+}
+
+
+</script>
+</html>
